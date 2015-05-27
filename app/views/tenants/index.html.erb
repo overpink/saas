@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your organisations dude!</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_roles.each do |role| %>
+      <% tenant = role.resource %>
+    <%# @tenants.each do |tenant| %>
+      <tr>
+        <td><%= tenant.name %></td>
+        <td><%= tenant.description %></td>
+        <td><%= link_to tenant.url, tenant.url %></td>
+        <td><%= link_to 'Show', tenant %></td>
+        <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
+        <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tenant', new_tenant_path %>

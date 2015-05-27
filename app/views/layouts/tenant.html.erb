@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pm</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><%= current_tenant ? current_tenant.name.capitalize : "FancyApp" %></a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li>
+              Signed in as <%= current_user.email %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign in", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+          <% end %>
+
+        </ul>
+
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+
+          <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+            <li role="presentation" class="active"><a href="/">Dashboard</a></li>
+            <li role="presentation">
+              <%= link_to "Projects", projects_path %>
+            </li>
+            <li role="presentation"><a href="#">blasfgh</a></li>
+          </ul>
+
+        </div>
+        <div class="col-md-9">
+          <% flash.each do |key, value| %>
+            <%= value %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
