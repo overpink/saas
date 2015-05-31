@@ -3,4 +3,5 @@ class Task < ActiveRecord::Base
   belongs_to :project
   has_many :comments, as: :owner
 
+  validates :project_id, :content, presence: true
 end

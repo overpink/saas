@@ -43,6 +43,11 @@ group :development, :test do
   gem 'spring'
 
   gem 'quiet_assets'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 2.8.0'
 end
 
 
