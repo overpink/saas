@@ -9,12 +9,10 @@ class Project < ActiveRecord::Base
 
   scope :in_tenant, ->(tenant) { where(tenant_id: tenant.id)}
 
-
+  validates :name, presence: true
   before_validation :ensure_slug
 
   def ensure_slug
-    self.slug = self.name.parameterize if self.slug.blank? && self.name.present?
+    self.slug = name.parameterize if slug.blank? && name.present?
   end
-
-
 end
