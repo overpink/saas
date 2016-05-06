@@ -1,3 +1,7 @@
+[![Code Climate](https://codeclimate.com/github/IcaliaLabs/saas/badges/gpa.svg)](https://codeclimate.com/github/IcaliaLabs/saas)
+[![Test Coverage](https://codeclimate.com/github/IcaliaLabs/saas/badges/coverage.svg)](https://codeclimate.com/github/IcaliaLabs/saas/coverage)
+[![Issue Count](https://codeclimate.com/github/IcaliaLabs/saas/badges/issue_count.svg)](https://codeclimate.com/github/IcaliaLabs/saas)
+
 # PM (project manager)
 
 PM is just an example of a multitenant rails application (for illustration purposes)
